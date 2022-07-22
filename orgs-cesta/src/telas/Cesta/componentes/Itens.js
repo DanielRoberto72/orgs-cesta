@@ -1,20 +1,23 @@
 import React from  'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, FlatList } from 'react-native';
 import Texto from '../../../componentes/Texto';
 
 export default function Itens({titulo, lista}) {
+
+    const renderItem= ({item:{nome, imagem}}) =>
+        <View key={nome} style={estilos.item}>
+            <Image source={imagem} style={estilos.imagem}/>
+            < Texto style={estilos.nome}>{nome}</Texto>
+        </View>
+
     return(
     <>
         <Texto style={estilos.titulo}>{titulo}</Texto>
-        {lista.map(({nome, imagem})=>{
-            return (
-                <View key={nome} style={estilos.item}>
-                    <Image source={imagem} style={estilos.imagem}/>
-                    < Texto style={estilos.nome}>{nome}</Texto>
-                    
-                </View>
-            )
-        })}
+        <FlatList
+            data={lista}
+            renderItem= {renderItem}
+            keyExtractor={({nome}) => nome}
+        />
     </>
     )
 }
