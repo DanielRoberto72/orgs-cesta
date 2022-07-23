@@ -1,6 +1,6 @@
 
 # orgs-cesta 🌱
-Aplicativo desenvolvido no curso de react-native da alura
+Aplicativo desenvolvido no curso de react-native da alura utilizando expo CLI
 
 # Passos iniciais
 1. Clone o projeto
